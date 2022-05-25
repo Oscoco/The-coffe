@@ -188,15 +188,15 @@ input[type=text], input[type=password] {
     }
     .title-welcome {
         padding:0;
-        font-size:2rem;
+        font-size:3.5rem;
     }
     .subtitle{
         font-size: 1rem;
         padding: 0;
     }
     .cup {
-        width: 60%;
-        max-width: 140px;
+        width: 70%;
+        max-width: 160px;
     }
     .form-login{
         margin: 0;
@@ -209,10 +209,12 @@ input[type=text], input[type=password] {
     }
     .title{
         margin: 0;
-        font-size:2rem;
+        margin-top: 20px;
+        font-size:3rem;
     }
     .form-subtitle{
         font-size: 1rem;
+        margin-bottom: 20px;
     }
 }
 @media screen and (min-width: 425px ) and (max-width: 891px){

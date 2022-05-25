@@ -1,0 +1,20 @@
+{
+    "nombre": "Thecoffe",
+    "description": "E-comers",
+    "type":"project",
+    "license": "MIT",
+    "authors":  [
+        {
+            "name": "Oscoco",
+            "email": "example@gmail.com"
+        }
+    ],
+    "require": {
+        
+    },
+    "autoload": {
+        "psr-4": {
+            "Thecoffe\\":"src/"
+        }
+    }
+}

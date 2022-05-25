@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css -->
@@ -53,7 +53,7 @@
                         </a>
                         
                         <div class="nav__dropdown">
-                            <a href="#" class="nav__link">
+                            <a href="../examples/categorias.html" class="nav__link">
                                 <i class='bx bx-category-alt  nav__icon'></i>
                                 
                                 <span class="nav__name">Categorias</span>
@@ -153,8 +153,7 @@
           <div class="swiper-slide">Slide 2</div>
           <div class="swiper-slide">Slide 3</div>
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+       
         <div class="swiper-pagination"></div>
       </div>
        
@@ -171,7 +170,7 @@
         <div class="col_item">
             <img class="img-col" src="./assets/img/example01.jpg" alt="" srcset="">
             <div class="content_col">
-                <h2>Pasteleria</h2>
+                <h2 class="content_title" >Pasteleria</h2>
                 <p class="text-subtitle">Un pedacito de dia</p>
                 <p class="text-subtitle subtitle_view">Ver mas</p>
             </div>
@@ -182,7 +181,7 @@
         <div class="col_item">
             <img class="img-col" src="./assets/img/example02.jpg" alt="" srcset="">
             <div class="content_col">
-                <h2>Cafeteria</h2>
+                <h2 class="content_title">Cafeteria</h2>
                 <p class="text-subtitle">Para tu mañana</p>
                 <p class="text-subtitle subtitle_view">Ver mas</p>
             </div>
@@ -193,7 +192,7 @@
         <div class="col_item">
             <img class="img-col" src="./assets/img/pan2.jpg" alt="" srcset="">
             <div class="content_col">
-                <h2>Panaderia</h2>
+                <h2 class="content_title" >Panaderia</h2>
                 <p class="text-subtitle">Un pedacito de dia</p>
                 <p class="text-subtitle subtitle_view">Ver mas</p>
             </div>
@@ -274,6 +273,15 @@
             
         </div>
     </section>
+
+    <section>
+        <?php 
+            require 'vendor/autoload.php';
+            $pelicula = new Thecoffe\cake;
+        
+        
+        ?>
+    </section>
 </main>
 
 <br></br>
@@ -286,7 +294,7 @@
         <div class="footer_coffe">
             <h1>Cofee | Drink</h1>
             <br>
-            <p>Recuerda que mientras estes aprenienfo no estas fallando</p>
+            <p>Recuerda que mientras estes apreniendo no estas fallando</p>
         </div>
        
         <div class="social-media">

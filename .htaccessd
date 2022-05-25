@@ -1,0 +1,8 @@
+<!-- <FilesMatch "(\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp)|~)$">
+   Order allow,deny
+   Deny from all
+   Satisfy All
+</FilesMatch> -->
+
+<!-- esto es lo que ayuda en guardar archivos sql -->
+<!-- http://localhost/cofee_drink/index.html# -->
