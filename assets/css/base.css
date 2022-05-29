@@ -1,1 +1,32 @@
 @import url(./main.css);
+
+/* pages */
+.title_page{
+    width:100%;
+    margin: 20px;
+    font-weight:bold;
+    text-align: center;
+}
+.direction_pages{
+    display: flex;
+
+}
+.content_products{
+    width:100%;
+    background-color: red;
+    display:flex;
+    justify-content: center;
+}
+.products{
+    width:80%;
+    background-color: blue;
+}
+.bx__home{
+    font-size: 15px;
+}
+
+/* 
+vercel */
+
+
+

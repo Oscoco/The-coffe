@@ -31,6 +31,7 @@
   --transition-lenear: all 0.5s linear;
   --box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   --transition-contents: all 1s cubic-bezier(.25, .8, .25, 1);
+  --border-contents: 1.5rem;
 }
 
 
