@@ -62,7 +62,7 @@
 
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
-                                    <a href="#" class="nav__dropdown-item">Cafeteria</a>
+                                    <a href="#" class="nav__dropdown-item">Panaderia</a>
                                     <a href="#" class="nav__dropdown-item"></a>
                                     <a href="#" class="nav__dropdown-item">Pasteleria</a>
                                 </div>
@@ -267,6 +267,40 @@
             
         </div>
     </section>
+    <!-- categories to pasteleria -->
+    <section>
+    <div class="main_title title-product">
+        <h1>Productos Populares</h1>
+    </div>
+    <!-- content categories -->
+    <div class="main_content">
+        <?php
+            require 'vendor/autoload.php';
+            $pelicula = new Thecoffe\Pelicula;
+            $info_peliculas = $pelicula->mostrar();
+            $cantidad = 0;
+            if($cantidad > 0) {
+                for($x = 0; $x < $cantidad; $x++){
+
+               
+            ?>
+
+              
+
+
+
+
+            <?php
+                }
+            }else{ ?>
+                <h4>NO HAY REGISTROS</h4>
+
+                <?php }?>
+        
+        
+    </div>
+
+    </section>
 
 </main>
 
@@ -280,7 +314,7 @@
         <div class="footer_coffe">
             <h1>Cofee | Drink</h1>
             <br>
-            <p>Recuerda que mientras estes apreniendo no estas fallando</p>
+            <p>Recuerda que mientras estes aprendiendo no estas fallando</p>
         </div>
        
         <div class="social-media">
@@ -313,6 +347,6 @@
 
 <?php 
             require 'vendor/autoload.php';
-            $pelicula = new Thecoffe\cake;
+            $pelicula = new Thecoffe\Pelicula;
             
 ?>

@@ -105,44 +105,87 @@
              
         <div class="main-btn_content">
             <a class="btn btn_new" href="../../panel/pasteles/index.php">
-            <i class='bx bx-arrow-back' ></i>Volver</a>    
+            <i class='bx bx-arrow-back'></i>Volver</a>    
+        </div>
+
+        <div class="main_title title-ten main_resgistros">
+            <h1>Registra los Datos</h1>
         </div>
 
         <section class="main_content-edit">
+            
             <div class="container-edit">
-            <form>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
-                     <button type="submit" class="btn btn-primary">Submit</button>
-                <div class="form-group">
-                    <label for="exampleFormControlFile1">Selecciona una imagen</label>
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                </div>
-            </form>
+                <form class="colum" method="POST" action="../acciones.php" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label class="title_label" for="">Titulo </label>
+                        <input type="text" class="form-control" name="titulo" required>
+                    </div>
+                        
+                    <div class="form-group">
+                        <div class="">
+                            <span class="title_label">Descripcion</span>
+                        </div>
+                        <textarea class="form-control" name="descripcion"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="title_label" >Relleno</label>
+                        <select class="form-select" name="categoria_id" required>
+                            <option value="">Select</option>
+                            <?php 
+                            require '../../vendor/autoload.php';
+                            $categoria = new Thecoffe\Categoria;
+                            $info_categoria = $categoria->mostrar();
+                            $cantidad = count($info_categoria);
+
+                                for($x =0; $x< $cantidad; $x++) {
+                                    $item = $info_categoria[$x];
+
+                            ?>
+                                <option value="<?php print $item['id']?>"><?php print $item['nombre'] ?></option>  
+                            <?php 
+
+
+                                }
+                            ?>
+                            
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="title_label" for="">Precio </label>
+                        <input type="number" min="0" name="precio" placeholder="$ 0.00" required>
+                    </div>
+
+                    <div class="form-group">
+                    <label for="">Selecciona una imagen</label>
+                        <input type="file" name="foto" class="" accept="image/png, image/gif, image/jpeg" required>
+                    </div>
+
+                    <div class="form-group">
+
+                
+                    <button name="accion" class="btn btn btn-enviar" value="Registrar">Enviar</button>
+                    <a href="index.php" class="btn btn">Cancelar</a>
+                    </div>
+                </form>
             </div>
         </section>
-      
-        
-
-     
+    
   
 </main>
 
+<br><br><br><br>
 
 </body>
 
-<a class="back-to-top"><i class='bx bxs-chevron-up'></i></a>
 
+<a class="back-to-top"><i class='bx bxs-chevron-up'></i></a>
+<footer>
+    <div class="footer-creator">Coded with
+        <i class='bx bx-heart' ></i> <a class="me" href="https://oscardev.ga/"> oscardev.ga</a>
+    </div>
+</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="../../assets/js/main.js"></script>

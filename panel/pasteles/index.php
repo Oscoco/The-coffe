@@ -118,41 +118,78 @@
         
 
         <section class="conten__cakes">
-            
+            <fileset class="fileset_conten">
                 <table class="main_cakes-list">
+                    <tbody>
                 <tr>
-                    <th>#</th>
+                    <th class="number_col">N°</th>
                     <th>Titulo</th>
-                    <th>categoria</th>
+                    <th>Relleno</th>
                     <th>Precio</th>
                     <th>Foto</th>
                     <th>Acciones</th>
                 </tr>
+                <?php
+                    require '../../vendor/autoload.php';
+
+                    $pelicula = new Thecoffe\Pelicula;
+                    $info_pastel = $pelicula->mostrar();
+
+                    $cantidad = count($info_pastel);
+                    if($cantidad > 0) {
+                        $c=0;
+                    for($x = 0; $x < $cantidad; $x++){
+                        $c++;
+                        $item = $info_pastel[$x];
+
+                ?>
                 <tr>
-                    <td>#</td>
-                    <td>pastel 01</td>
-                    <td>Acarmelado con oreo</td>
-                    <td>$10.99</td>
-                    <td></td>
+                    <td class="number_col"><?php print $c?></td>
+                    <td><?php print $item['titulo']?></td>
+                    <td><?php print $item['nombre']?></td>
+                    <td>$<?php print $item['precio']?></td>
+                    <td  >
+                        <?php
+                            $foto = '../../Upload/'.$item['foto'];
+                            if(file_exists($foto)){
+                                
+                        ?>
+                        <img  src="<?php print $foto;?>" width="50">
+                        <?php } else {?>
+                        SIN FOTO
+                        <?php } ?>
+                    </td>
+                    
                     <td class="accion-icons">
-                        <a href="" class="btn_accion"><i class='bx bx-trash'></i></a>
-                        <a href="" class="btn_accion bx-icon"><i class='bx bx-edit'></i></a>
-                        
+                        <a href="../acciones.php?id=<?php print $item['id'] ?>" class="btn_accion"><i class='bx bx-trash'></i></a>
+                        <a href="form_actualizar.php?id=<?php print $item['id'] ?>" class="btn_accion bx-icon"><i class='bx bx-edit'></i></a>
                     </td>
                 </tr>
-              
+
+                <?php 
+                }
+                    }else{
+
+                ?>
+                <tr>
+                    <td colspan="6">No existe ningun registro</td>
+                </tr>
+                
+                <?php } ?>
+                    </tbody>
                 </table>
-        
+            </fileset>
         </section>
-
-
     </section>
-   
-  
 </main>
-
-
 </body>
+<br><br><br>
+<footer>
+    <div class="footer-creator">Coded with
+        <i class='bx bx-heart' ></i> <a class="me" href="https://oscardev.ga/"> oscardev.ga</a>
+    </div>
+</footer>
+
 
 <a class="back-to-top"><i class='bx bxs-chevron-up'></i></a>
 

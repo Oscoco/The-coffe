@@ -47,7 +47,7 @@
 
                 <div class="nav__list">
                     <div class="nav__items">
-                        <h3 class="nav__subtitle">Categorias</h3>
+                        <h3 class="nav__subtitle">Home</h3>
 
                         <a href="../panel/dashboard.php" class="nav__link active">
                             <i class='bx bx-home nav__icon' ></i>
@@ -126,7 +126,11 @@
 <a class="back-to-top"><i class='bx bxs-chevron-up'></i></a>
 
 <br><br>
-
+<footer>
+    <div class="footer-creator">Coded with
+        <i class='bx bx-heart' ></i> <a class="me" href="https://oscardev.ga/"> oscardev.ga</a>
+    </div>
+</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="../assets/js/main.js"></script>
