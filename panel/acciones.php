@@ -33,6 +33,7 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
 
         if($rpt)
             header('Location: pasteles/index.php');
+           
         else
             print 'Error al registrar';
         

@@ -154,7 +154,7 @@
 
                     <div class="form-group">
                         <label  class="title_label" for="">Precio </label>
-                        <input type="number" min="0" name="precio" placeholder="$ 0.00" required>
+                        <input type="number" step="any" max="200" min="0" name="precio" placeholder="$ 0.00" required>
                     </div>
 
                     <div class="form-group">

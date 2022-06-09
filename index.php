@@ -64,7 +64,7 @@
                                 <div class="nav__dropdown-content">
                                     <a href="#" class="nav__dropdown-item">Panaderia</a>
                                     <a href="#" class="nav__dropdown-item"></a>
-                                    <a href="#" class="nav__dropdown-item">Pasteleria</a>
+                                    <a href="pages/pasteleria.php" class="nav__dropdown-item">Pasteleria</a>
                                 </div>
                             </div>
                         </div>
@@ -186,7 +186,7 @@
         </div>
     </div>
 
-    <a href="./examples/Productos.html" class="item">
+    <div href="" class="item">
         <div class="col_item">
             <img class="img-col" src="./assets/img/pan2.jpg" alt="" srcset="">
             <div class="content_col">
@@ -195,7 +195,7 @@
                 <p class="text-subtitle subtitle_view">Ver mas</p>
             </div>
         </div>
-    </a>
+    </div>
    </section>
 
 <!-- product -->
@@ -267,35 +267,10 @@
             
         </div>
     </section>
-    <!-- categories to pasteleria -->
-    <section>
-    <div class="main_title title-product">
-        <h1>Productos Populares</h1>
-    </div>
+   
     <!-- content categories -->
     <div class="main_content">
-        <?php
-            require 'vendor/autoload.php';
-            $pelicula = new Thecoffe\Pelicula;
-            $info_peliculas = $pelicula->mostrar();
-            $cantidad = 0;
-            if($cantidad > 0) {
-                for($x = 0; $x < $cantidad; $x++){
-
-               
-            ?>
-
-              
-
-
-
-
-            <?php
-                }
-            }else{ ?>
-                <h4>NO HAY REGISTROS</h4>
-
-                <?php }?>
+       
         
         
     </div>

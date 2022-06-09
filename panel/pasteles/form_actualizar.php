@@ -122,7 +122,7 @@
             <h1>Coffee Drink | Administrador</h1>
         </div>
 
-        <h5><i class='bx bx-home bx__home'></i>  Home  / Pasteleria / Actualizar</h5>
+       c
              
         <div class="main-btn_content">
             <a class="btn btn_new" href="../../panel/pasteles/index.php">
@@ -154,7 +154,7 @@
                         <label  class="title_label">Relleno</label>
                         <select class="form-select" name="categoria_id" required>
                             <option value="">Select</option>
-                            <?php 
+                            <?php       
                             require '../../vendor/autoload.php';
                             $categoria = new Thecoffe\Categoria;
                             $info_categoria = $categoria->mostrar();

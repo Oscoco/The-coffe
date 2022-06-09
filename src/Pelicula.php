@@ -106,4 +106,21 @@
         }
 
 
+
+
+        public function mostrar_ultimos_pasteles(){
+            $sql = "SELECT peliculas.id, titulo, descripcion,foto,nombre,precio,fecha,estado FROM peliculas 
+            
+            INNER JOIN categorias
+
+            ON peliculas.categoria_id = categorias.id ORDER BY peliculas.id DESC 
+            ";
+            $resultado = $this->cn->prepare($sql);
+
+                if($resultado-> execute())
+                    return $resultado->fetchAll();
+
+                return false;
+        }
+
     }
