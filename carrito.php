@@ -1,3 +1,41 @@
+<?php 
+    //para acivar el carrito usamos las sesiones de php hay que activarlas 
+
+    session_start();
+    require 'funciones.php';
+
+
+    if(isset($_GET['id']) && is_numeric($_GET['id'])){
+        $id = $_GET['id'];
+        require 'vendor/autoload.php';
+        $pelicula = new Thecoffe\Pelicula;
+        $resultado = $pelicula->mostrarPorId($id);
+
+        if(!$resultado)
+            header ('location: examples/Product-null.html');   
+
+            
+      
+        if(isset($_SESSION['carrito'])){// Si el carrito existe
+            //si existe en el cariito
+            if(array_key_exists('id', $_SESSION['carrito'])){
+
+
+            }else{
+                 //si NO existe en el cariito
+                agregarpastel($resultado, $id);
+            }
+
+        }else{
+            //si el carrito no existe
+            agregarpastel($resultado, $id);
+        }
+        
+    }
+   
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,17 +43,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css -->
-    <link rel="stylesheet" href="../assets/css/categorias-pasteleria.css">
+    <link rel="stylesheet" href="assets/css/categorias-pasteleria.css">
     
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
-    <title>Coffee Drink | Pasteleria </title>
+    <title>Coffee Drink | Carrito </title>
 </head>
  <!--========== HEADER ==========-->
  <header class="header">
         <div class="header__container">
-            <img src="./assets/img/example01.jpg" alt="" class="header__img">
+            <img src="assets/img/example01.jpg" alt="" class="header__img">
 
             <a href="#" class="header__logo">Coffee | Drink</a>
 
@@ -50,7 +88,7 @@
                         </a>
                         
                         <div class="nav__dropdown ">
-                            <a href="../examples/categorias.html" class="nav__link active">
+                            <a href="../examples/categorias.html" class="nav__link">
                                 <i class='bx bx-category-alt  nav__icon'></i>
                                 
                                 <span class="nav__name">Categorias</span>
@@ -61,12 +99,12 @@
                                 <div class="nav__dropdown-content">
                                     <a href="#" class="nav__dropdown-item">Panaderia</a>
                                     <a href="#" class="nav__dropdown-item"></a>
-                                    <a href="pasteleria.php" class="nav__dropdown-item active">Pasteleria</a>
+                                    <a href="./pages/pasteleria.php" class="nav__dropdown-item">Pasteleria</a>
                                 </div>
                             </div>
                         </div>
 
-                        <a href="#" class="nav__link">
+                        <a href="#" class="nav__link active">
                             <i class='bx bx-cart nav__icon'></i>
                             <span class="nav__name">Mis Compras</span>
                         </a>
@@ -111,10 +149,10 @@
                         <div class="nav__items">
                             <h3 class="nav__subtitle">Contacto</h3>
     
-                            <a href="#" class="nav__link active">
+                            <!-- <a href="#" class="nav__link active">
                                 <i class='bx bxl-whatsapp nav__icon'></i>
                                 <span class="nav__name">Whatsapp</span>
-                            </a>
+                            </a> -->
                             
                             <div class="nav__dropdown">
                                 <a href="#" class="nav__link">
@@ -137,64 +175,18 @@
             </a>
         </nav>
     </div>
+
 <body>
     <main>
-        <h5><i class='bx bx-home bx__home'></i>  Home  / Categorias /Pasteleria </h5>
-
-
-    </main>
+        <h5><i class='bx bx-home bx__home'></i>  Home  / Carrito </h5>
+    
     <!-- content to categories cake -->
 <div class="main_title title-product">
     <h1>Pasteleria</h1>
 </div>
 
-<div class="container-categories">
-    <div class="categories">
-    <?php
-            require '../vendor/autoload.php';
-            $pelicula = new Thecoffe\Pelicula;
-            $info_peliculas = $pelicula->mostrar();
-            $cantidad = count($info_peliculas);
-            if($cantidad > 0) {
-                for($x = 0; $x < $cantidad; $x++){
-                    $item = $info_peliculas[$x];
-               
-            ?>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                <?php
-                        $foto = '../Upload/'.$item['foto'];
-                            if(file_exists($foto)){
-                                
-                        ?>
-                        <div class="product_img">
-                            <img src="<?php print $foto;?>">
-                        </div>
-                        
-                        <?php } else {?>
-                        SIN FOTO
-                        <?php } ?>
-                </div>
-                <div class="panel-body">
-                <h2 class="panel-title"><?php print $item['titulo'] ?></h2>
-                    <p class="price">Desde $<?=number_format($item['precio'], 2, '.', '') ?></p>
-                    <div class="cart-conten">
-                        <a class="btn btn-cart" href="../carrito.php?id=<?php print $item['id'] ?>"><i class='bx bx-cart'></i></a>
-                        <a class="btn btn-view" href="#">Ver mas..</a>
-                    </div>
-                </div>
-            </div>
 
-            <?php
-                }
-            }else{ ?>
-                <h4>NO HAY REGISTROS</h4>
-
-                <?php }?>
-
-    </div>
-</div>
-
+    </main>
 </body>
 
 <footer class="footer">
@@ -211,7 +203,7 @@
             <a href="" class="social"><i class='bx bxl-instagram'></i></a>
             <h3>Social media</h3> 
             <br>
-            <a href="" class="social"><img src="./assets/img/payment.png" alt="" srcset=""></a>
+            <a href="" class="social"><img src="assets/img/payment.png" alt="" srcset=""></a>
 
             <h3>Formas de pago</h3>
         </div>
