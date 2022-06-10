@@ -1,0 +1,104 @@
+@import url(./main.css);
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap");
+/* pages */
+.title_page{
+    width:100%;
+    font-weight:bold;
+    text-align: center;
+}
+.direction_pages{
+    display: flex;
+
+}
+
+.bx__home{
+    font-size: 15px;
+}
+.title{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    display:flex;
+
+      border-radius:1.5rem;
+}
+
+.content_sucursal{
+   width: 100%;
+   height: auto;
+    border-radius:1.5rem;
+    flex-flow: row wrap;
+    align-items: top;
+    display: flex;
+    flex-flow: row wrap;
+    border-style: solid;
+    border-color: #C36A2D;
+    justify-content: center;
+    margin: 20px;
+ 
+}
+.sucursal{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+     border-radius:1.5rem;
+     flex-flow: row wrap;
+     align-items: top;
+     display: flex;
+     flex-flow: row wrap;
+     justify-content: center;
+  
+}
+/*Esta parte es la del menu desplegable*/
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+section{
+
+width:80%;
+margin:0auto;
+display:flex;
+flex-direction:column;
+
+}
+
+.faq{
+    max-width:700px;
+    margin-top:2rem;
+    padding-bottom:1rem;
+    border-bottom:3.5px solid  #C36A2D;
+    cursor:pointer;
+    margin: 10px;
+  color: #444;
+  transition: 0.4s;
+}
+
+
+.question{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.4s;
+
+}
+
+.question h3{
+    font-size: 1.2rem;
+    transition: 1.5s;
+}
+.title_sucursales{
+    display: flex;
+}
+.bx-chevron-up{
+    font-size: 1.8rem;
+}
+
+.text-content{
+    text-align:justify;
+}
+  
+

@@ -102,7 +102,7 @@
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
                                     <a href="#" class="nav__dropdown-item">Corporativo</a>
-                                    <a href="#" class="nav__dropdown-item">Sucursales</a>
+                                    <a href="examples/sucursal.html" class="nav__dropdown-item">Sucursales</a>
                                     <a href="#" class="nav__dropdown-item">Contacto</a>
                                 </div>
                             </div>

@@ -1,0 +1,59 @@
+@import url(../css/main.css);
+.conten__cakes{
+    width: 100%;
+    /* background-color:red; */
+    display: flex;
+    justify-content: center;
+    
+    
+  }
+  .main_cakes-list{
+    width: 100%;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    text-align: center;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #ccc;
+  }
+  .number_col{
+    text-align:center;
+  }
+  .fileset_conten{
+    width: 100%
+  }
+  .accion-icons{
+    display: flex;
+    text-align: center;
+    height: auto;
+    border-bottom: none;
+    justify-content: center;
+  }
+  .btn_accion{
+    border-radius: 0.5rem;
+    font-size: 20px;
+    margin:5px;
+    padding:5px;
+    background-color:rgb(251, 3, 3);
+    height:30px;
+    color: #fff;
+  }
+  .bx-icon{
+    background-color:rgba(0, 222, 45, 0.884);
+  }
+  
+
+  /* table for cart */
+  .line-col{
+      color: var(--first-color);
+      font-size: 1.5em;
+  }

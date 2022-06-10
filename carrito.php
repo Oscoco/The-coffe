@@ -14,12 +14,10 @@
         if(!$resultado)
             header ('location: examples/Product-null.html');   
 
-            
-      
         if(isset($_SESSION['carrito'])){// Si el carrito existe
             //si existe en el cariito
             if(array_key_exists('id', $_SESSION['carrito'])){
-
+                actualizarPastel($id);
 
             }else{
                  //si NO existe en el cariito
@@ -30,7 +28,9 @@
             //si el carrito no existe
             agregarpastel($resultado, $id);
         }
-        
+        print '<pre>';
+        print_r($_SESSION['carrito']);
+        die;
     }
    
 ?>
@@ -43,7 +43,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css -->
-    <link rel="stylesheet" href="assets/css/categorias-pasteleria.css">
+    <link rel="stylesheet" href="assets/css/carrito.css">
     
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
@@ -82,7 +82,7 @@
                     <div class="nav__items">
                         <h3 class="nav__subtitle">Categorias</h3>
 
-                        <a href="../index.html" class="nav__link ">
+                        <a href="index.php" class="nav__link ">
                             <i class='bx bx-home nav__icon' ></i>
                             <span class="nav__name">Home</span>
                         </a>
@@ -179,11 +179,60 @@
 <body>
     <main>
         <h5><i class='bx bx-home bx__home'></i>  Home  / Carrito </h5>
-    
-    <!-- content to categories cake -->
+    <!-- content to list cart cake -->
 <div class="main_title title-product">
-    <h1>Pasteleria</h1>
+    <h1>Productos agregados</h1>
 </div>
+
+    <section>
+        <table>
+            <thead>
+            <tr>
+                <th class="number_col">N°</th>
+                <th>Nombre</th>
+                <th>Foto</th>
+                <th>Relleno</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+                <?php 
+                    if(isset($_POST['carrito']) && !empty($_SESSION['carrito'])){
+                        foreach($_POST['carrito'] as $indice => $value){
+                ?>
+                    <tr>
+                        
+                    </tr>
+
+                <?php 
+                    }
+                    }else {
+                ?>
+                    <tr>
+                        <td class="line-col" colspan="7">
+                        No hay productos agregados :(
+                        </td>
+                    </tr>
+
+                <?php 
+                    }
+                ?>
+              
+            </tbody>
+        </table>
+   
+    </section>
+
+
+
+
+
+
+
+
+
 
 
     </main>

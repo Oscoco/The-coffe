@@ -11,12 +11,14 @@ function agregarpastel($resultado, $id, $cantidad = 1) {
     );
 
 }
-function actualizarPastel($cantidad = FALSE) {
+function actualizarPastel($id,$cantidad = FALSE) {
 
 //    4:20 ver en el video cap 14
-
-    $_SESSION['carrito'][$id]['cantidad'] = 1;
-   
+    if ($cantidad){
+        $_SESSION['carrito'][$id]['cantidad'] = $cantidad;
+    }else{
+        $_SESSION['carrito'][$id]['cantidad'] += 1;
+    }
 
 }
 
