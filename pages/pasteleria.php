@@ -1,3 +1,8 @@
+<?php 
+    session_start();
+    require '../funciones.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,14 +20,15 @@
  <!--========== HEADER ==========-->
  <header class="header">
         <div class="header__container">
-            <img src="./assets/img/example01.jpg" alt="" class="header__img">
+           
 
             <a href="#" class="header__logo">Coffee | Drink</a>
 
-            <!-- <div class="header__search">
-                <input type="search" placeholder="Search" class="header__input">
-                <i class='bx bx-search header__icon'></i>
-            </div> -->
+            <a href="carrito.php" class="nav__link">
+                <i class='bx bx-cart nav__icon'></i>
+                <p class="carrito_number"><?php print cantidadPasteles(); ?> </p>
+            </a> 
+            
 
             <div class="header__toggle">
                 <i class='bx bx-menu' id="header-toggle"></i>
@@ -44,7 +50,7 @@
                     <div class="nav__items">
                         <h3 class="nav__subtitle">Categorias</h3>
 
-                        <a href="../index.html" class="nav__link ">
+                        <a href="../index.php" class="nav__link ">
                             <i class='bx bx-home nav__icon' ></i>
                             <span class="nav__name">Home</span>
                         </a>
@@ -68,7 +74,8 @@
 
                         <a href="#" class="nav__link">
                             <i class='bx bx-cart nav__icon'></i>
-                            <span class="nav__name">Mis Compras</span>
+                            <span class="nav__name">Mis Compras </span>
+                            <p class="carrito_number"><?php print cantidadPasteles(); ?> </p>
                         </a>
                     </div>
 

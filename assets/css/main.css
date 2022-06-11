@@ -340,6 +340,20 @@ a {
   }
 }
 /* End to nav */
+/* card number */
+.carrito_number{
+  margin: 5px;
+  padding: 3px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: var(--first-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
 
 /* section products */
 .product-slider{
@@ -499,7 +513,7 @@ a {
   font-family:var(--secondary-fonts);
   border-radius: 5px;
   transition: all 0.5s linear;
-  cursor: pointer;
+  
 }
    .btn-banner:hover{
     background-color: var(--first-color);

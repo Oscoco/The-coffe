@@ -1,26 +1,39 @@
+<?php 
+    session_start();
+    require '../funciones.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- the box icons -->
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <!-- icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
   
-    <link rel="stylesheet" href="../assets/css/base.css">
-    <title>Coffee Drink | Pasteleria </title>
+    <title>Coffe | Categorias</title>
 </head>
   <!--========== HEADER ==========-->
   <header class="header">
     <div class="header__container">
-        <img src="./assets/img/example01.jpg" alt="" class="header__img">
+        
 
-        <a href="#" class="header__logo">Coffee | Drink </a>
+        <a href="#" class="header__logo">Coffee | Drink</a>
+
+        <a href="carrito.php" class="nav__link">
+            <i class='bx bx-cart nav__icon'></i>
+            <p class="carrito_number"><?php print cantidadPasteles(); ?> </p>
+        </a>    
+
+
         <div class="header__toggle">
             <i class='bx bx-menu' id="header-toggle"></i>
         </div>
     </div>
 </header>
+
 <!-- nav -->
 <div class="nav" id="navbar">
     <nav class="nav__container">
@@ -35,13 +48,13 @@
                 <div class="nav__items">
                     <h3 class="nav__subtitle">Categorias</h3>
 
-                    <a href="index.php" class="nav__link active">
+                    <a href="../index.php" class="nav__link ">
                         <i class='bx bx-home nav__icon' ></i>
                         <span class="nav__name">Home</span>
                     </a>
                     
-                    <div class="nav__dropdown">
-                        <a href="../examples/categorias.html" class="nav__link">
+                    <div class="nav__dropdown ">
+                        <a href="../examples/categorias.php" class="nav__link active">
                             <i class='bx bx-category-alt  nav__icon'></i>
                             
                             <span class="nav__name">Categorias</span>
@@ -52,14 +65,15 @@
                             <div class="nav__dropdown-content">
                                 <a href="#" class="nav__dropdown-item">Cafeteria</a>
                                 <a href="#" class="nav__dropdown-item"></a>
-                                <a href="#" class="nav__dropdown-item">Pasteleria</a>
+                                <a href="../pages/pasteleria.php" class="nav__dropdown-item">Pasteleria</a>
                             </div>
                         </div>
                     </div>
 
-                    <a href="#" class="nav__link">
+                    <a href="../carrito.php" class="nav__link">
                         <i class='bx bx-cart nav__icon'></i>
-                        <span class="nav__name">Mis Compras</span>
+                        <span class="nav__name">Mis Compras </span>
+                            <p class="carrito_number"><?php print cantidadPasteles(); ?> </p>
                     </a>
                 </div>
 
@@ -74,7 +88,7 @@
                         </a>
                     </div>
 
-                    <a href="#" class="nav__link">
+                    <a href="https://oscoco.github.io/Working-on-it/" class="nav__link">
                         <i class='bx bx-compass nav__icon' ></i>
                         <span class="nav__name">Explorar</span>
                     </a>
@@ -89,9 +103,9 @@
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                                <a href="#" class="nav__dropdown-item">Corporativo</a>
-                                <a href="#" class="nav__dropdown-item">Sucursales</a>
-                                <a href="#" class="nav__dropdown-item">Contacto</a>
+                                <a href="" class="nav__dropdown-item">Corporativo</a>
+                                <a href="" class="nav__dropdown-item">Sucursales</a>
+                                <a href="" class="nav__dropdown-item">Contacto</a>
                             </div>
                         </div>
                     </div>
@@ -129,56 +143,15 @@
     </nav>
 </div>
 
+<!--content product  slider-->
+
+
+
+
+
+
 
 <body>
-    <main>
-        <section class="direction_pages">
-             <h5><i class='bx bx-home bx__home'></i>  Home / Categorias / Pasteleria</h5>
-        </section>
-
-        <section class="title_page">
-            <h1>Pastelerial - Productos</h1>
-        </section>
-
-        <section class="content_products">
-            <div class="products">
-                a
-            </div>
-        </section>
-
-
-    </main>
+    <h5><i class='bx bx-home bx__home'></i>  Home  / Categorias </h5>
 </body>
-
-
-
-<footer class="footer">
-    <div class="conten_footer">
-        <div class="footer_coffe">
-            <h1>Cofee | Drink</h1>
-            <br>
-            <p>Recuerda que mientras estes apreniendo no estas fallando</p>
-        </div>
-       
-        <div class="social-media">
-            <a href="" class="social"><i class='bx bxl-facebook-square'></i></a>
-            <a href="" class="social"><i class='bx bxl-whatsapp'></i></a>
-            <a href="" class="social"><i class='bx bxl-instagram'></i></a>
-            <h3>Social media</h3> 
-            <br>
-            <a href="" class="social"><img src="../assets/img/payment.png" alt="" srcset=""></a>
-
-            <h3>Fromas de pago</h3>
-        </div>
-        
-    </div>
-    <div class="footer-line"></div>
-    <div class="footer-creator">Coded with
-        <i class='bx bx-heart' ></i> <a class="me" href="https://oscardev.ga/"> oscardev.ga</a></div>
-</footer>
-<br><br>
-<a class="Whatsapp"><i class='bx bxl-whatsapp' ></i></a>
-<a class="back-to-top"><i class='bx bxs-chevron-up'></i></a>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="../assets/js/main.js"></script>
 </html>

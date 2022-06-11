@@ -28,9 +28,7 @@
             //si el carrito no existe
             agregarpastel($resultado, $id);
         }
-        print '<pre>';
-        print_r($_SESSION['carrito']);
-        die;
+       
     }
    
 ?>
@@ -53,14 +51,14 @@
  <!--========== HEADER ==========-->
  <header class="header">
         <div class="header__container">
-            <img src="assets/img/example01.jpg" alt="" class="header__img">
-
+            
             <a href="#" class="header__logo">Coffee | Drink</a>
 
-            <!-- <div class="header__search">
-                <input type="search" placeholder="Search" class="header__input">
-                <i class='bx bx-search header__icon'></i>
-            </div> -->
+            <a href="carrito.php" class="nav__link">
+                <i class='bx bx-cart nav__icon'></i>
+                <p class="carrito_number"><?php print cantidadPasteles(); ?> 
+            </p>
+            </a> 
 
             <div class="header__toggle">
                 <i class='bx bx-menu' id="header-toggle"></i>
@@ -98,7 +96,7 @@
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
                                     <a href="#" class="nav__dropdown-item">Panaderia</a>
-                                    <a href="#" class="nav__dropdown-item"></a>
+                                    
                                     <a href="./pages/pasteleria.php" class="nav__dropdown-item">Pasteleria</a>
                                 </div>
                             </div>
@@ -106,7 +104,8 @@
 
                         <a href="#" class="nav__link active">
                             <i class='bx bx-cart nav__icon'></i>
-                            <span class="nav__name">Mis Compras</span>
+                            <span class="nav__name">Mis Compras </span>
+                            <p class="carrito_number"><?php print cantidadPasteles(); ?> </p>
                         </a>
                     </div>
 
@@ -185,55 +184,97 @@
 </div>
 
     <section>
-        <table>
-            <thead>
-            <tr>
-                <th class="number_col">N°</th>
-                <th>Nombre</th>
-                <th>Foto</th>
-                <th>Relleno</th>
-                <th>Precio</th>
-                <th>Cantidad</th>
-                <th>Total</th>
-            </tr>
-            </thead>
-            <tbody>
-                <?php 
-                    if(isset($_POST['carrito']) && !empty($_SESSION['carrito'])){
-                        foreach($_POST['carrito'] as $indice => $value){
-                ?>
+    <table>
+                  <thead>
                     <tr>
-                        
+                    <th class="number_col">N°</th>
+                      <th>Nombre</th>
+                      <th>Foto</th>
+                      <th>Precio</th>
+                      <th>Cantidad</th>
+                      <th>Total</th>
+                      <th>Actalualizar</th>
                     </tr>
+                  </thead>
+                  <tbody>
+                      <?php
+                        if(isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])){
+                            $c=0;
+                            foreach($_SESSION['carrito'] as $indice => $value){
+                                $c++;
+                                $total = $value['precio'] * $value['cantidad'];
+                      ?>
+                        <tr>
+                            <form action="actualizar_carrito.php" method="post">
+                                <td><?php print $c ?></td>
+                                <td class="active"><?php print $value['titulo']  ?></td>
+                                <td>
+                                    <?php
+                                        $foto = 'upload/'.$value['foto'];
+                                        if(file_exists($foto)){
+                                        ?>
+                                        <img src="<?php print $foto; ?>" width="60">
+                                    <?php }else{?>
+                                        <img src="assets/imagenes/not-found.jpg" width="45">
+                                    <?php }?>
+                                </td>
+                                <td>$<?php print $value['precio']  ?> USD</td>
+                                <td class="cantidad_td">
+                                <input type="hidden" name="id" class="content-cantidad" value="<?php print $value['id'] ?>">
+                                
+                                    <input type="number" min="1" max="" name="cantidad" class="cantidad" value="<?php print $value['cantidad'] ?>">
+                                </td>
+                                <td >
+                                    $ <?php print $total  ?> USD
+                                </td>
+                                <td>
+                                   <button class="btn_accion bx-icon">
+                                   <i class='bx bx-refresh'></i>
+                                   </button>
+                                
 
-                <?php 
-                    }
-                    }else {
-                ?>
-                    <tr>
-                        <td class="line-col" colspan="7">
-                        No hay productos agregados :(
-                        </td>
-                    </tr>
+                                <a href="eliminar_carrito.php?id=<?php print $value['id']?>" class="btn_accion"><i class='bx bx-trash'></i></a>
 
-                <?php 
-                    }
-                ?>
-              
-            </tbody>
-        </table>
-   
+                                </td>
+                            </form>
+                        </tr>
+
+                    <?php
+                        }
+                        }else{
+                    ?>
+                        <tr>
+                            <td colspan="7">NO HAY PRODUCTOS EN EL CARRITO</td>
+
+                        </tr>
+                    <?php
+                        }
+                    ?>
+                </tbody>
+                <tfoot>
+                        <tr>
+                            <td colspan="6" class="text-right active">Total: &nbsp;$
+                            <?php print calcularTotal(); ?> USD
+                            </td>
+                            
+                            <td><a href="#" class="btn-banner"><i class='bx bxs-credit-card'></i> &nbsp;</i>Pagar</a>
+                         </td>
+                        </tr>
+
+                </tfoot>
+            </table>
+            
+            <br>
+            <div>
+                <p> ¡Una recomendación cuando quieras añadir una cantidad mas de tu producto <br> 
+                    favorito usa el boton de actualizar para añadir mas!<i class='bx bx-cart'></i></p>
+            </div>
+            <br>
+            <br>
+            <div>
+                <a href="pages/pasteleria.php" class="btn-banner"> <i class='bx bx-chevron-left'></i>Ver mas productos</a>
+            </div>
     </section>
-
-
-
-
-
-
-
-
-
-
 
     </main>
 </body>

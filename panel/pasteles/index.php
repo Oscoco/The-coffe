@@ -168,7 +168,7 @@
 
                 <?php 
                 }
-                    }else{zend_logo_guid
+                    }else{
 
                 ?>
                 <tr>

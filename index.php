@@ -1,3 +1,8 @@
+<?php 
+    session_start();
+    require 'funciones.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,14 +23,13 @@
      <!--========== HEADER ==========-->
      <header class="header">
         <div class="header__container">
-            <img src="./assets/img/example01.jpg" alt="" class="header__img">
 
             <a href="#" class="header__logo">Coffee | Drink</a>
-
-            <!-- <div class="header__search">
-                <input type="search" placeholder="Search" class="header__input">
-                <i class='bx bx-search header__icon'></i>
-            </div> -->
+            
+            <a href="carrito.php" class="nav__link">
+                <i class='bx bx-cart nav__icon'></i>
+                <p class="carrito_number"><?php print cantidadPasteles(); ?> </p>
+            </a>             
 
             <div class="header__toggle">
                 <i class='bx bx-menu' id="header-toggle"></i>
@@ -47,13 +51,13 @@
                     <div class="nav__items">
                         <h3 class="nav__subtitle">Categorias</h3>
 
-                        <a href="./index.html" class="nav__link active">
+                        <a href="index.php" class="nav__link active">
                             <i class='bx bx-home nav__icon' ></i>
                             <span class="nav__name">Home</span>
                         </a>
                         
                         <div class="nav__dropdown">
-                            <a href="../examples/categorias.html" class="nav__link">
+                            <a href="examples/categorias.html" class="nav__link">
                                 <i class='bx bx-category-alt  nav__icon'></i>
                                 
                                 <span class="nav__name">Categorias</span>
@@ -69,9 +73,10 @@
                             </div>
                         </div>
 
-                        <a href="#" class="nav__link">
+                        <a href="carrito.php" class="nav__link">
                             <i class='bx bx-cart nav__icon'></i>
-                            <span class="nav__name">Mis Compras</span>
+                            <span class="nav__name">Mis Compras </span>
+                            <p class="carrito_number"><?php print cantidadPasteles(); ?> </p>
                         </a>
                     </div>
 
@@ -79,7 +84,7 @@
                         <h3 class="nav__subtitle">Menu</h3>
 
                         <div class="nav__dropdown">
-                            <a href="#" class="nav__link">
+                            <a href="index.php" class="nav__link">
                                
                                 <i class='bx bx-cake nav__icon'></i>
                                 <span class="nav__name">Promociones</span>
@@ -92,7 +97,7 @@
                         </a>
                         
                         <div class="nav__dropdown">
-                            <a href="#" class="nav__link">
+                            <a href="examples/sucursal.html" class="nav__link">
                                 <i class='bx bx-coffee  nav__icon'></i>
                                 
                                 <span class="nav__name">Corporativo</span>
@@ -170,7 +175,7 @@
             <div class="content_col">
                 <h2 class="content_title">Pasteleria</h2>
                 <p class="text-subtitle">Un pedacito de dia</p>
-                <p class="text-subtitle subtitle_view">Ver mas</p>
+                <a href="pages/pasteleria.php" class="text-subtitle subtitle_view">Ver mas</a>
             </div>
         </div>
     </div>
@@ -231,8 +236,8 @@
                     <h1>katie rosario</h1>
                     <p class="description-price">Desde $10.99</p>
                     <div class="cart-conten">
-                        <a class="btn btn-cart" href="#"><i class='bx bx-cart'></i></a>
-                        <a class="btn btn-view" href="#">Ver mas..</a>
+                        <!-- <a class="btn btn-cart" href="#"><i class='bx bx-cart'></i></a> -->
+                        <a class="btn btn-view" href="pages/pasteleria.php">Ver mas..</a>
                     </div>
                 </div>
             </div>
@@ -245,8 +250,8 @@
                     <h1>Special Unicord</h1>
                     <p class="description-price">Desde $19.99</p>
                     <div class="cart-conten">
-                        <a class="btn btn-cart" href="#"><i class='bx bx-cart'></i></a>
-                        <a class="btn btn-view" href="#">Ver mas..</a>
+                        <!-- <a class="btn btn-cart" href="#"><i class='bx bx-cart'></i></a> -->
+                        <a class="btn btn-view" href="pages/pasteleria.php">Ver mas..</a>
                     </div>
                 </div>
             </div>
@@ -259,8 +264,8 @@
                     <h1>Oreo cute</h1>
                     <p class="description-price">Desde $10.99</p>
                     <div class="cart-conten">
-                        <a class="btn btn-cart" href="#"><i class='bx bx-cart'></i></a>
-                        <a class="btn btn-view" href="#">Ver mas..</a>
+                        <!-- <a class="btn btn-cart" href="#"><i class='bx bx-cart'></i></a> -->
+                        <a class="btn btn-view" href="pages/pasteleria.php">Ver mas..</a>
                     </div>
                 </div>
             </div>
