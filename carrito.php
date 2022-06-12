@@ -257,7 +257,7 @@
                             <?php print calcularTotal(); ?> USD
                             </td>
                             
-                            <td><a href="#" class="btn-banner"><i class='bx bxs-credit-card'></i> &nbsp;</i>Pagar</a>
+                            <td><a href="finalizar.php" class="btn-banner"><i class='bx bxs-credit-card'></i> &nbsp;</i>Pagar</a>
                          </td>
                         </tr>
 
