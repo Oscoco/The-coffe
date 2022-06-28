@@ -1,46 +1,50 @@
-<?php 
+<?php
 
+session_start();
 
-    session_start();
+if($_SERVER['REQUEST_METHOD'] ==='POST'){
 
-    if($_SESSION['REQUEST_METHOD'] == 'POST'){
+    require 'funciones.php';
+    require 'vendor/autoload.php';
 
-        require 'funciones.php';
+    if(isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])){
+        $cliente = new Thecoffe\Cliente;
+    
+        $_params = array(
+            'nombre' => $_POST['nombre'],
+            'apellidos' => $_POST['apellidos'],
+            'email' => $_POST['email'],
+            'telefono' => $_POST['telefono'],
+            'comentario' => $_POST['comentario']
+        );
+    
+        $cliente_id = $cliente->registrar($_params);
+    
+        $pedido = new Thecoffe\Pedido;
+    
+        $_params = array(
+            'cliente_id'=>$cliente_id,
+            'total' => calcularTotal(),
+            'fecha' => date('Y-m-d')
+        );
+        
+        $pedido_id =  $pedido->registrar($_params);
 
-        if(isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])){
+        foreach($_SESSION['carrito'] as $indice => $value){
+            $_params = array(
+                "pedido_id" => $pedido_id,
+                "pelicula_id" => $value['id'],
+                "precio" => $value['precio'],
+                "cantidad" => $value['cantidad'],
+            );
 
-
-
+            $pedido->registrarDetalle($_params);
         }
 
-        $cliente = new Thecoffe\Cliente;
+        $_SESSION['carrito'] = array();
 
-        $_params = array(
-            "nombre" => $_POST['nombre'], 
-            "apellidos" => $_POST['apellidos'], 
-            "emal" => $_POST['emal'], 
-            "telefono" => $_POST['telefono'], 
-            "comentario" => $_POST['comentario'],
-        );
-         $cliente_id = $cliente-> registrar($_params);
-
-         $pedido = new Thecoffe\Pedido;
-
-
-         $_params = array(
-            'cliente_id' => $cliente_id,
-            'total' => calcularTotal(),
-            'fecha' => date('Y-m-d'),
-         );
-
-
-         $pedido_id = $pedido->registrar($params);
-
-        //  if()
-
+        header('Location: gracias.php');
 
     }
- 
-
-
+}
 

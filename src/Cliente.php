@@ -20,16 +20,17 @@
         }
 
         public function registrar($_params) {
-            $sql = "INSERT INTO `pedidos`(`cliente_id`, `total`, `fecha`) VALUES (':cliente_id',':total',':fecha')";
+            $sql = "INSERT INTO `clientes`(`nombre`, `apellidos`, `email`, `telefono`, `comentario`) VALUES (:nombre, :apellidos, :email, :telefono, :comentario)";
 
             $resultado = $this->cn->prepare($sql);
 
             $_array = array(
-                ":cliente_id" => $_params['cliente_id'], 
-                ":total" => $_params['total'], 
-                ":fecha" => $_params['fecha'], 
+                ":nombre" => $_params['nombre'], 
+                ":apellidos" => $_params['apellidos'], 
+                ":email" => $_params['email'], 
+                ":telefono" => $_params['telefono'], 
+                ":comentario" => $_params['comentario'], 
             );
-
                 if($resultado-> execute($_array))
                     return $this->cn->lastInsertId();
 
@@ -38,28 +39,24 @@
 
         }
 
-        public function registrarDetalle($_params) {
-            $sql = "INSERT INTO `detalle_pedidos`(`pedido_id`, `pelicula_id`, `precio`, `cantidad`) VALUES (:pedido_id,:pelicula_id,:precio,:cantidad)";
+        // public function registrarDetalle($_params) {
+        //     $sql = "INSERT INTO `detalle_pedidos`(`pedido_id`, `pelicula_id`, `precio`, `cantidad`) VALUES (:pedido_id,:pelicula_id,:precio,:cantidad)";
 
-            $resultado = $this->cn->prepare($sql);
+        //     $resultado = $this->cn->prepare($sql);
 
-            $_array = array(
-                ":pedido_id" => $_params['pedido_id'], 
-                ":pelicula_id" => $_params['pelicula_id'], 
-                ":precio" => $_params['precio'], 
-                ":cantidad" => $_params['cantidad'], 
-            );
+        //     $_array = array(
+        //         ":pedido_id" => $_params['pedido_id'], 
+        //         ":pelicula_id" => $_params['pelicula_id'], 
+        //         ":precio" => $_params['precio'], 
+        //         ":cantidad" => $_params['cantidad'], 
+        //     );
 
-                if($resultado-> execute($_array))
-                    return true;
+        //         if($resultado-> execute($_array))
+        //             return true;
 
-                return false;
-
-
-        }
+        //         return false;
 
 
-
-
+        // }
       
     }

@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group">
                         <label class="title_label" for="">Apellido </label>
-                        <input type="text" class="form-control" name="apellido" required>
+                        <input type="text" class="form-control" name="apellidos" required>
                     </div>
                     <div class="form-group">
                         <label class="title_label" for="">Email </label>

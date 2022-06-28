@@ -111,8 +111,54 @@
             <br><br><br>
         </div>
 
+        <a href="index.php">Regresar</a>
+        <br>
+        <br>
+        <a href="javascript:;" id="" >Imprimir</a>
+        <br>
+        <br>
 
         <section class="conten__pedidos">
+            <?php
+                require '../../vendor/autoload.php';
+                $id = $_GET['id'];
+                $pedido = new Thecoffe\Pedido;
+
+                $info_pedido = $pedido->mostrarPorId($id);
+
+                $info_detalle_pedido = $pedido->mostrarDetallePorIdPedido($id);
+            
+            ?>
+                <fieldset>
+                    <legend>informacion de la compra</legend>
+                    <div clas="form-group">
+                        <label for="">Nombre</label>
+                        <input type="text" value="<?php print $info_pedido['nombre']?>" readonly="">
+                    </div>
+                    <div clas="form-group">
+                        <label for="">Apellidos</label>
+                        <input type="text" value="<?php print $info_pedido['apellidos']?>" readonly="">
+                    </div>
+                    <div clas="form-group">
+                        <label for="">Email</label>
+                        <input type="text" value="<?php print $info_pedido['email']?>" readonly="">
+                    </div>
+                    <div clas="form-group">
+                        <label for="">Fecha</label>
+                        <input type="text" value="<?php print $info_pedido['fecha']?>" readonly="">
+                    </div>
+                    <div clas="form-group">
+                        <label for="">Total de la compra</label>
+                       <input type="text" value="$<?php print $info_pedido['total']?>" readonly="">
+                    </div>
+
+
+
+
+                    <hr>
+                    Productos comprados
+                    <hr>
+                    <section class="conten__pedidos">
             <div>
             <section class="conten__cakes">
             <fileset class="fileset_conten">
@@ -120,35 +166,40 @@
                     <tbody>
                 <tr>
                     <th class="number_col">N°</th>
-                    <th>cliente</th>
-                    <th>Numero Pedido</th>
+                    <th>titulo</th>
+                    <th>Foto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
                     <th>Total</th>
-                    <th>Fecha</th>
-                   
                 </tr>
                 <?php
-                    require '../../vendor/autoload.php';
-
-                    $Pedido = new Thecoffe\Pedido;
-                    $info_Pedido = $Pedido->mostrar();
-
-                    $cantidad = count($info_Pedido);
+                    $cantidad = count($info_detalle_pedido);
                     if($cantidad > 0) {
                         $c=0;
                     for($x = 0; $x < $cantidad; $x++){
                         $c++;
-                        $item = $info_Pedido[$x];
+                        $item = $info_detalle_pedido[$x];
+
+                        $total = $item['precio'] * $item['cantidad'];
                 ?>
                 <tr>
                     <td class="number_col"><?php print $c?></td>
-                    <td><?php print $item['nombre'].' '.$item['apellidos']?></td>
-                    <td><?php print $item['id']?></td>
-                    <td>$<?php print $item['total']?></td>
-                    <td><?php print $item['fecha']?></td>
-                    
-                    <td class="accion-icons">
-                        <a href="ver.php?id=<?php print $item['id'] ?>" class="btn_accion bx-icon"><i class='bx bx-edit'></i></a>
+                    <td><?php print $item['titulo']?></td>
+                    <td>
+                        <?php
+                            $foto = '../../Upload/'.$item['foto'];
+                            if(file_exists($foto)){
+                                
+                        ?>
+                        <img  src="<?php print $foto;?>" width="35">
+                        <?php } else {?>
+                        SIN FOTO
+                        <?php } ?>
                     </td>
+                    <td>$<?php print $item['precio']?></td>
+                    <td><?php print $item['cantidad']?></td>
+                    <td>$<?php print $total?></td>
+                
                 </tr>
 
                 <?php 
@@ -163,11 +214,16 @@
                 <?php } ?>
                     </tbody>
                 </table>
+                <br><br>
+                <div clas="form-group">
+                        <label for="">Total de la compra</label>
+                       <input type="text" value="$<?php print $info_pedido['total']?>" readonly="">
+                    </div>
             </fileset>
         </section>
 
+                </fieldset>
         
-            </div>
         </section>
 
 
