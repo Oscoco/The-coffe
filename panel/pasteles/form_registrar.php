@@ -65,7 +65,6 @@
                     <div class="nav__items">
                         <h3 class="nav__subtitle">Menu</h3>
 
-                       
                             <a href="#" class="nav__link active">
                                 <i class='bx bx-cake nav__icon'></i>
                                 <span class="nav__name">Nuevo Pastel</span>
@@ -102,7 +101,6 @@
         </div>
 
         <h5><i class='bx bx-home bx__home'></i>  Home  / Pasteleria / Agregar Nuevo</h5>
-             
         <div class="main-btn_content">
             <a class="btn btn_new" href="../../panel/pasteles/index.php">
             <i class='bx bx-arrow-back'></i>Volver</a>    

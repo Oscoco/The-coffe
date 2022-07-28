@@ -42,7 +42,7 @@
         <nav class="nav__container">
             <div>
                 <a href="#" class="nav__link nav__logo">
-                  
+                
                     <i class='bx bx-coffee nav__icon' ></i>
                     <span class="nav__logo-name">Coffee </span>
                 </a>

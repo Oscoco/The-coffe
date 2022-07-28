@@ -28,9 +28,7 @@
             //si el carrito no existe
             agregarpastel($resultado, $id);
         }
-       
     }
-   
 ?>
 
 
@@ -48,8 +46,8 @@
 
     <title>Coffee Drink | Carrito </title>
 </head>
- <!--========== HEADER ==========-->
- <header class="header">
+<!--========== HEADER ==========-->
+<header class="header">
         <div class="header__container">
             
             <a href="#" class="header__logo">Coffee | Drink</a>
@@ -71,15 +69,13 @@
         <nav class="nav__container">
             <div>
                 <a href="#" class="nav__link nav__logo">
-                  
+                
                     <i class='bx bx-coffee nav__icon' ></i>
                     <span class="nav__logo-name">Coffee </span>
                 </a>
-
                 <div class="nav__list">
                     <div class="nav__items">
                         <h3 class="nav__subtitle">Categorias</h3>
-
                         <a href="index.php" class="nav__link ">
                             <i class='bx bx-home nav__icon' ></i>
                             <span class="nav__name">Home</span>
@@ -92,7 +88,6 @@
                                 <span class="nav__name">Categorias</span>
                                 <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
                             </a>
-
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
                                     <a href="#" class="nav__dropdown-item">Panaderia</a>
@@ -101,25 +96,20 @@
                                 </div>
                             </div>
                         </div>
-
                         <a href="#" class="nav__link active">
                             <i class='bx bx-cart nav__icon'></i>
                             <span class="nav__name">Mis Compras </span>
                             <p class="carrito_number"><?php print cantidadPasteles(); ?> </p>
                         </a>
                     </div>
-
                     <div class="nav__items">
                         <h3 class="nav__subtitle">Menu</h3>
-
                         <div class="nav__dropdown">
                             <a href="#" class="nav__link">
-                               
                                 <i class='bx bx-cake nav__icon'></i>
                                 <span class="nav__name">Promociones</span>
                             </a>
                         </div>
-
                         <a href="#" class="nav__link">
                             <i class='bx bx-compass nav__icon' ></i>
                             <span class="nav__name">Explorar</span>
@@ -132,7 +122,6 @@
                                 <span class="nav__name">Corporativo</span>
                                 <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
                             </a>
-
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
                                     <a href="#" class="nav__dropdown-item">Corporativo</a>
