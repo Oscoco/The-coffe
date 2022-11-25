@@ -1,5 +1,5 @@
 <?php
 
-    define("RUTA", 'http://localhost/cofee_drink');
+    define("RUTA", 'http://localhost/coffe');
     
 ?>
